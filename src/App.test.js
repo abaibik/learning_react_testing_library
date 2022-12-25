@@ -7,9 +7,10 @@ test("button has correct initial color", () => {
   expect(button).toHaveStyle({ backgroundColor: "red" });
 });
 
-test("button turns blue when clicked", () => {
+test("button turns blue and the button name changes when clicked", () => {
   render(<App />);
   const button = screen.getByRole("button", { name: "Change to blue" });
   fireEvent.click(button);
   expect(button).toHaveStyle({ backgroundColor: "blue" });
+  expect(button).toHaveTextContent("Change to red");
 });
