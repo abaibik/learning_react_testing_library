@@ -7,6 +7,13 @@ function App() {
 
   const [disabled, setDisabled] = useState(false);
 
+  function getButtonColor() {
+    if (disabled) {
+      return "grey";
+    }
+    return buttonColor;
+  }
+
   return (
     <div className="flexContainer">
       <button
@@ -14,7 +21,7 @@ function App() {
           setButtonColor(newButtonColor);
         }}
         className="styled"
-        style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: getButtonColor() }}
         disabled={disabled}
       >
         Change to {newButtonColor}
