@@ -21,7 +21,7 @@ test("button turns blue and the button name changes when clicked", () => {
 test("checkbox is not checked and button enabled when starts out", () => {
   render(<App />);
   const button = screen.getByRole("button", { name: "Change to blue" });
-  const checkbox = screen.getByRole("checkbox");
+  const checkbox = screen.getByRole("checkbox", { name: "Check the button" });
 
   expect(button).toBeEnabled();
   expect(checkbox).not.toBeChecked();
@@ -30,7 +30,7 @@ test("checkbox is not checked and button enabled when starts out", () => {
 test("checkbox is checked and button disabled when clicked", () => {
   render(<App />);
   const button = screen.getByRole("button", { name: "Change to blue" });
-  const checkbox = screen.getByRole("checkbox");
+  const checkbox = screen.getByRole("checkbox", { name: "Check the button" });
 
   fireEvent.click(checkbox);
 
@@ -41,7 +41,7 @@ test("checkbox is checked and button disabled when clicked", () => {
 test("button is enabled and checkbox is not checked when unchecked", () => {
   render(<App />);
   const button = screen.getByRole("button", { name: "Change to blue" });
-  const checkbox = screen.getByRole("checkbox");
+  const checkbox = screen.getByRole("checkbox", { name: "Check the button" });
 
   fireEvent.click(checkbox);
   fireEvent.click(checkbox);
