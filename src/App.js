@@ -5,17 +5,32 @@ function App() {
   const [buttonColor, setButtonColor] = useState("red");
   const newButtonColor = buttonColor === "red" ? "blue" : "red";
 
+  const [disabled, setDisabled] = useState(false);
+
   return (
-    <div>
+    <div className="flexContainer">
       <button
         onClick={() => {
           setButtonColor(newButtonColor);
         }}
         className="styled"
         style={{ backgroundColor: buttonColor }}
+        disabled={disabled}
       >
         Change to {newButtonColor}
       </button>
+
+      <div className="checkbox-container">
+        <input
+          onChange={() => {
+            setDisabled((currentDisabled) => !currentDisabled);
+          }}
+          type="checkbox"
+          id="checkbox-for-button"
+          name="checkButton"
+        />
+        <label for="checkbox-for-button">Check the button</label>
+      </div>
     </div>
   );
 }
